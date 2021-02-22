@@ -15,9 +15,22 @@ Game.prototype.addPlayer = function(player) {
 }
 
 Game.prototype.takeTurn = function(player) {
-  player.tallyTurnScore(player.roll());
-  player.winnerCheck();
+  let takeAnotherRoll = player.tallyTurnScore(player.roll());
+  if (takeAnotherRoll === false) {
+    this.endTurn();
+  } else {
+    player.winnerCheck();
+  }
 }
+
+// Game.prototype.switchCurrentPlayer = function() {
+  
+// }
+
+Game.prototype.endTurn = function(player) {
+  console.log("End Turn");
+}
+
 
 
 function Player(name) {
@@ -40,15 +53,11 @@ Player.prototype.winnerCheck = function() {
 Player.prototype.tallyTurnScore = function(roll) {
   if (roll === 1) {
     this.turnScore = 0;
-    return = false;
+    return false;
   } else {
     this.turnScore = roll;
   }
 }
-
-// Player.prototype.switchCurrentPlayer = function() {
-  
-// }
 
 
 
