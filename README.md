@@ -76,6 +76,9 @@ Describe: Game.prototype.addPlayer(player)
 Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key"
 Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1 })
 
+Describe: Game.prototype.takeTurn(player)
+Test: "It will call player.tallyTurnScore and pass player.roll() as an argument"
+Expect(game1.takeTurn(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1 })
 
 
 
