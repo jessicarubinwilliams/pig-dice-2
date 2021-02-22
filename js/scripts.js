@@ -25,8 +25,8 @@ Player.prototype.roll = function() {
   return Math.floor((Math.random() * 6) + 1);
 }
 
-// Player.prototype.winnerCheck = function() {
-//   if (this.gameScore >= 100) {
-//     return this.isWinner = true;
-//   }
-// }
+Player.prototype.winnerCheck = function() {
+  if (this.gameScore >= 100) {
+    return this.isWinner = true;
+  }
+}
