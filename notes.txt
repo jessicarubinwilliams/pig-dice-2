@@ -58,15 +58,15 @@ When you have a broad overview of how you want to build your game, identify the 
 
 
 List of Tests:
-Player object
-Game object
-assignId()
-addPlayer()
-roll()
-winnerCheck()
-tallyTurnScore()
-findCurrentPlayer()
-takeTurn()
+√ Player object
+√ Game object
+√ assignId()
+√ addPlayer()
+√ roll()
+√ winnerCheck()
+√ tallyTurnScore()
+√ findCurrentPlayer()
+√ takeTurn()
 switchPlayer()
 endTurn()
 tallyGameScore()
