@@ -62,24 +62,24 @@ Expect(player1.tallyTurnScore(6)).toEqual(Player { name: "Jamie", gameScore: 0, 
 
 Describe: Game()
 Test: "It will create Game instances with Players, CurrentId, and CurrentPlayer properties"
-Expect(let game1 = new Game().toEqual(Game { Players: {}, currentId: 0, currentPlayer: 1}));
+Expect(let game1 = new Game()).toEqual(Game { Players: {}, currentId: 0, currentPlayer: 1, isWon: false});
 
 Describe: Game.prototype.assignId
 Test: "It will increment the currentId property and return the newly incremented value"
-Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, currentPlayer: 1});
+Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, currentPlayer: 1, isWon: false });
 Expect(game1.assignId()).toEqual(return value = 1));
 
 Describe: Game.prototype.addPlayer(player)
 Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key"
-Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1 })
+Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1, isWon: false })
 
 Describe: Game.prototype.winnerCheck(player)
 Test: "It will assess whether a Player's gameScore property value is greater than or equal to 100"
 Expect(Game.winnerCheck(player1)).toEqual(false);
 
 Describe: Game.prototype.takeTurn(player)
-Test: "It will call player.tallyTurnScore and pass player.roll() as an argument"
-Expect(game1.takeTurn(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1 })
+Test: "It will call player.tallyTurnScore, pass player.roll() as an argument, and call game.winnerCheck()"
+Expect(game1.takeTurn(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1, isWon: false })
 
 
 
