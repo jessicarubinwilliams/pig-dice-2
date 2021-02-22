@@ -50,7 +50,7 @@ Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
 
-Describe: Player.prototype.winnerCheck(player)
+Describe: Player.prototype.winnerCheck
 Test: "It will assess whether a Player's gameScore property value is greater than or equal to 100"
 Expect(player1.winnerCheck()).toEqual(false);
 
