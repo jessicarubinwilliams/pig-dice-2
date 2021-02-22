@@ -2,6 +2,7 @@ function Game() {
   this.players = {};
   this.currentId = 0;
   this.currentPlayer = 1;
+  this.isWinner = false;
 } 
 
 Game.prototype.assignId = function() {
@@ -20,6 +21,10 @@ function Player(name) {
   this.gameScore = 0;
 }
 
-Player.prototype.roll() = function() {
+Player.prototype.roll = function() {
   return Math.floor((Math.random() * 6) + 1);
 }
+
+// Player.prototype.winnerCheck = function(player) {
+//   if (this.gameScore >= 100)
+// }
