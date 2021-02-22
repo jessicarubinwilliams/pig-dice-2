@@ -41,6 +41,7 @@ assignId - triggered by addPlayer()
 addPlayer - triggered by submit (clicking the Play Button)
 newGame - triggered by click (clicking New Game Button)
 switchPlayer - triggered by tallyScore() execution
+takeTurn - triggered by roll button (calls multiple other single functionality methods in successsion)
 
 Player functions:
 roll - triggered by click (clicking Roll Button)
