@@ -19,6 +19,8 @@ Game.prototype.winnerCheck = function(player) {
   if (player.gameScore >= 100) {
     player.isWinner = true;
     return this.isWon = true;
+  } else {
+    return false;
   }
 }
 
