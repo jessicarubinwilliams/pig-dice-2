@@ -47,7 +47,6 @@ Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
 
-
 Describe: Player.prototype.tallyTurnScore(Player.prototype.roll())
 Test: "It will assess player's roll. If a one is rolled it will end player's turn. If a two through six is rolled it will add value of roll to turnScore property value"
 Expect(player1.tallyTurnScore(1)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 0, isWinner: false })
@@ -83,6 +82,9 @@ Describe: Game.prototype.switchCurrentPlayer
 Test: "It will switch currentPlayer property value from 1 to 2 or from 2 to 1"
 Expect(game1.switchCurrentPlayer()).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false }, 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
 
+Describe: Game.prototype.findCurrentPlayer()
+Test: "It will check the value of the currentPlayer property and return the player that has the matching id"
+Expect(game1.findCurrentPlayer()).toEqual((Player { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false })
 
 ## Known Bugs
 
