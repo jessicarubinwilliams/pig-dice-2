@@ -39,7 +39,8 @@ Player.prototype.winnerCheck = function() {
 
 Player.prototype.tallyTurnScore = function(roll) {
   if (roll === 1) {
-    this.switchCurrentPlayer();
+    this.turnScore = 0;
+    return = false;
   } else {
     this.turnScore = roll;
   }
