@@ -42,12 +42,12 @@ newGame - triggered by click (clicking New Game Button)
 switchPlayer - triggered by tallyScore() execution
 takeTurn - triggered by roll button (calls multiple other single functionality methods in successsion)
 endTurn - triggered by roll()=1 or click of hold button
+winnerCheck - triggered by tallyScore (called within tallyScore)
 
 Player functions:
 roll - triggered by click (clicking Roll Button)
 tallyTurnScore - triggered by click (clicking roll)
 tallyGameScore - triggered by endTurn function
-winnerCheck - triggered by tallyScore (called with tallyScore)
 
 How will information be collected from the user? How will it be displayed?
 
