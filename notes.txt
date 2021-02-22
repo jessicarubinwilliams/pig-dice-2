@@ -45,7 +45,7 @@ switchPlayer - triggered by tallyScore() execution
 Player functions:
 roll - triggered by click (clicking Roll Button)
 tallyScore - triggered by either hold function execution or by roll === 1
-check100 - triggered by tallyScore (called with tallyScore)
+winnerCheck - triggered by tallyScore (called with tallyScore)
 
 
 How will information be collected from the user? How will it be displayed?
@@ -61,7 +61,7 @@ Game object
 assignId()
 addPlayer()
 roll()
-100check()
+winnerCheck()
 tallyScore()
 switchPlayer()
 newGame()
