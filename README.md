@@ -39,9 +39,9 @@ Expect (yourFunctionName("given input")).toEqual("expected output");
 
 Describe: Player()
 Test: "It will take a name argument and create Player instances with Name, GameScore, TurnScore, isWinner properties. The name argument will be the value of the Name property"
-Expect(let player1 = new Player("Michael").toEqual(Player { Name: "Michael", GameScore: 0, TurnScore: 0, isWinner: false}));
+Expect(let player1 = new Player("Jamie")).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 0, isWinner: false });
 
-Describe: Player.prototype.roll();
+Describe: Player.prototype.roll()
 Test: "It will generate a random whole number between 1 and 6, inclusive"
 Expect(player1.roll()).toEqual(1);
 Expect(player1.roll()).toEqual(2);
@@ -50,22 +50,31 @@ Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
 
-Describe: Player.prototype.winnerCheck
+Describe: Player.prototype.winnerCheck()
 Test: "It will assess whether a Player's gameScore property value is greater than or equal to 100"
 Expect(player1.winnerCheck()).toEqual(false);
 
+Describe: Player.prototype.tallyTurnScore(Player.prototype.roll())
+Test: "It will assess player's roll. If a one is rolled it will end player's turn. If a two through six is rolled it will add value of roll to turnScore property value"
+Expect(player1.tallyTurnScore(1)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 0, isWinner: false })
+Expect(player1.tallyTurnScore(2)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 2, isWinner: false })
+Expect(player1.tallyTurnScore(3)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 3, isWinner: false })
+Expect(player1.tallyTurnScore(4)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 4, isWinner: false })
+Expect(player1.tallyTurnScore(5)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 5, isWinner: false })
+Expect(player1.tallyTurnScore(6)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 6, isWinner: false })
+
 Describe: Game()
 Test: "It will create Game instances with Players, CurrentId, and CurrentPlayer properties"
-Expect(let game1 = new Game().toEqual(Game { Players: {}, CurrentId: 0, CurrentPlayer: 1}));
+Expect(let game1 = new Game().toEqual(Game { Players: {}, currentId: 0, currentPlayer: 1}));
 
 Describe: Game.prototype.assignId
 Test: "It will increment the currentId property and return the newly incremented value"
-Expect(game1.assignId()).toEqual(Game { Players: {}, CurrentId: 1, CurrentPlayer: 1});
+Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, currentPlayer: 1});
 Expect(game1.assignId()).toEqual(return value = 1));
 
 Describe: Game.prototype.addPlayer(player)
 Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key"
-Expect(game1.addPlayer(player1)).toEqual(Game { Players: {1 { Name: "Michael", GameScore: 0, TurnScore: 0, id: 1, isWinner: false} }, CurrentId: 1, CurrentPlayer: 1})
+Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1 })
 
 
 
