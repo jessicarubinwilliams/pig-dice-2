@@ -36,19 +36,18 @@ New Game
 -What functions and how will these be triggered throughout the gameplay?
 
 Game functions:
-addId - triggered by addPlayer()
 assignId - triggered by addPlayer()
 addPlayer - triggered by submit (clicking the Play Button)
 newGame - triggered by click (clicking New Game Button)
 switchPlayer - triggered by tallyScore() execution
 takeTurn - triggered by roll button (calls multiple other single functionality methods in successsion)
+endTurn - triggered by roll()=1 or click of hold button
 
 Player functions:
 roll - triggered by click (clicking Roll Button)
-tallyScore - triggered by either hold function execution or by roll === 1
+tallyTurnScore - triggered by click (clicking roll)
+tallyGameScore - triggered by endTurn function
 winnerCheck - triggered by tallyScore (called with tallyScore)
-hold - triggered by click (clicking Hold Button)
-
 
 How will information be collected from the user? How will it be displayed?
 
@@ -66,7 +65,7 @@ roll()
 winnerCheck()
 tallyTurnScore()
 takeTurn()
-hold()
+endTurn()
 tallyGameScore()
 switchPlayer()
 newGame()
