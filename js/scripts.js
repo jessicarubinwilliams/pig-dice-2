@@ -14,6 +14,12 @@ Game.prototype.addPlayer = function(player) {
   this.players[player.id] = player;
 }
 
+Game.prototype.takeTurn = function(player) {
+  player.tallyTurnScore(player.roll());
+  player.winnerCheck();
+}
+
+
 function Player(name) {
   this.name = name;
   this.turnScore = 0;
