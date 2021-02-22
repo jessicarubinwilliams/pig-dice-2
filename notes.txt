@@ -43,6 +43,7 @@ switchPlayer - triggered by tallyScore() execution
 takeTurn - triggered by roll button (calls multiple other single functionality methods in successsion)
 endTurn - triggered by roll()=1 or click of hold button
 winnerCheck - triggered by tallyScore (called within tallyScore)
+findCurrentPlayer - triggered by takeTurn and endTurn (called within those functions)
 
 Player functions:
 roll - triggered by click (clicking Roll Button)
@@ -64,6 +65,7 @@ addPlayer()
 roll()
 winnerCheck()
 tallyTurnScore()
+findCurrentPlayer()
 takeTurn()
 switchPlayer()
 endTurn()
