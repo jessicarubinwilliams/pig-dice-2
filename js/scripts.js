@@ -69,6 +69,9 @@ Player.prototype.tallyTurnScore = function(roll) {
 //Pseudo User Interface Logic
 let game1 = new Game();
 let player1 = new Player("Jamie");
+let player2 = new Player("Robin");
 game1.addPlayer(player1);
-game1.takeTurn(player1);
-console.log(player1);
+game1.addPlayer(player2)
+// let currentPlayer = "player" + [game1.currentPlayer];
+// game1.takeTurn(currentPlayer);
+// console.log(currentPlayer);
