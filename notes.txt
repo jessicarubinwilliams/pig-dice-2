@@ -39,14 +39,14 @@ Game functions:
 addId - triggered by addPlayer()
 assignId - triggered by addPlayer()
 addPlayer - triggered by submit (clicking the Play Button)
-roll - triggered by click (clicking Roll Button)
-tallyScore - triggered by either hold function execution or by roll === 1
-check100 - triggered by tallyScore (called with tallyScore)
 newGame - triggered by click (clicking New Game Button)
 switchPlayer - triggered by tallyScore() execution
 
 Player functions:
-None identified yet
+roll - triggered by click (clicking Roll Button)
+tallyScore - triggered by either hold function execution or by roll === 1
+check100 - triggered by tallyScore (called with tallyScore)
+
 
 How will information be collected from the user? How will it be displayed?
 
