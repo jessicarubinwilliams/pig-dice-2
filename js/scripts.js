@@ -27,7 +27,7 @@ Game.prototype.takeTurn = function(player) {
   if (takeAnotherRoll === false) {
     this.endTurn();
   } else {
-    this.winnerCheck();
+    this.winnerCheck(player);
   }
 }
 
