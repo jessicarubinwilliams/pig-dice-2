@@ -33,6 +33,10 @@ Game.prototype.takeTurn = function(player) {
   }
 }
 
+Game.prototype.findCurrentPlayer = function() {
+  return this.players[this.currentPlayer];
+}
+
 // Game.prototype.switchCurrentPlayer = function() {
   
 // }
@@ -54,7 +58,6 @@ Player.prototype.roll = function() {
   return Math.floor((Math.random() * 6) + 1);
 }
 
-
 Player.prototype.tallyTurnScore = function(roll) {
   if (roll === 1) {
     this.turnScore = 0;
@@ -72,6 +75,7 @@ let player1 = new Player("Jamie");
 let player2 = new Player("Robin");
 game1.addPlayer(player1);
 game1.addPlayer(player2)
-// let currentPlayer = "player" + [game1.currentPlayer];
-// game1.takeTurn(currentPlayer);
-// console.log(currentPlayer);
+let currentPlayer = game1.findCurrentPlayer();
+game1.takeTurn(currentPlayer);
+console.log(game1);
+console.log(currentPlayer);
