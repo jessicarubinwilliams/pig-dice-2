@@ -19,3 +19,7 @@ function Player(name) {
   this.turnScore = 0;
   this.gameScore = 0;
 }
+
+Player.prototype.roll() = function() {
+  return Math.floor((Math.random() * 6) + 1);
+}
