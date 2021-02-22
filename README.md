@@ -50,9 +50,6 @@ Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
 
-Describe: Player.prototype.winnerCheck()
-Test: "It will assess whether a Player's gameScore property value is greater than or equal to 100"
-Expect(player1.winnerCheck()).toEqual(false);
 
 Describe: Player.prototype.tallyTurnScore(Player.prototype.roll())
 Test: "It will assess player's roll. If a one is rolled it will end player's turn. If a two through six is rolled it will add value of roll to turnScore property value"
@@ -75,6 +72,10 @@ Expect(game1.assignId()).toEqual(return value = 1));
 Describe: Game.prototype.addPlayer(player)
 Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key"
 Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1 })
+
+Describe: Game.prototype.winnerCheck(player)
+Test: "It will assess whether a Player's gameScore property value is greater than or equal to 100"
+Expect(Game.winnerCheck(player1)).toEqual(false);
 
 Describe: Game.prototype.takeTurn(player)
 Test: "It will call player.tallyTurnScore and pass player.roll() as an argument"
