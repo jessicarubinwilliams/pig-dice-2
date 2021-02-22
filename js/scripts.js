@@ -30,3 +30,24 @@ Player.prototype.winnerCheck = function() {
     return this.isWinner = true;
   }
 }
+
+Player.prototype.tallyTurnScore = function(roll) {
+  if (roll === 1) {
+    this.switchCurrentPlayer();
+  } else {
+    this.turnScore = roll;
+  }
+}
+
+// Player.prototype.switchCurrentPlayer = function() {
+  
+// }
+
+
+
+//Pseudo User Interface Logic
+let game1 = new Game();
+let player1 = new Player("Jamie");
+game1.addPlayer(player1);
+game1.takeTurn(player1);
+console.log(player1);
