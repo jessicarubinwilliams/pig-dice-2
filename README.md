@@ -41,6 +41,15 @@ Describe: Player()
 Test: "It will take a name argument and create Player instances with Name, GameScore, and TurnScore properties. The name argument will be the value of the Name property"
 Expect(let player1 = new Player("Michael").toEqual(Player { Name: "Michael", GameScore: 0, TurnScore: 0}));
 
+Describe: Player.prototype.roll();
+Test: "It will generate a random whole number between 1 and 6, inclusive"
+Expect(player1.roll()).toEqual(1)
+Expect(player1.roll()).toEqual(2)
+Expect(player1.roll()).toEqual(3)
+Expect(player1.roll()).toEqual(4)
+Expect(player1.roll()).toEqual(5)
+Expect(player1.roll()).toEqual(6)
+
 Describe: Game()
 Test: "It will create Game instances with Players, CurrentId, and CurrentPlayer properties"
 Expect(let game1 = new Game().toEqual(Game { Players: {}, CurrentId: 0, CurrentPlayer: 1}));
@@ -53,6 +62,8 @@ Expect(game1.assignId()).toEqual(return value = 1));
 Describe: Game.prototype.addPlayer(player)
 Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key.
 Expect(game1.addPlayer(player1)).toEqual(Game { Players: {1 { Name: "Michael", GameScore: 0, TurnScore: 0, id: 1} }, CurrentId: 1, CurrentPlayer: 1})
+
+
 
 
 
