@@ -15,6 +15,10 @@ Game.prototype.addPlayer = function(player) {
   this.players[player.id] = player;
 }
 
+Game.prototype.roll = function() {
+  return Math.floor((Math.random() * 6) + 1);
+}
+
 Game.prototype.winnerCheck = function(player) {
   if (player.gameScore >= 100) {
     player.isWinner = true;
@@ -25,7 +29,7 @@ Game.prototype.winnerCheck = function(player) {
 }
 
 Game.prototype.takeTurn = function(player) {
-  let takeAnotherRoll = player.tallyTurnScore(player.roll());
+  let takeAnotherRoll = player.tallyTurnScore(this.roll());
   if (takeAnotherRoll === false) {
     this.endTurn();
   } else {
@@ -58,9 +62,6 @@ function Player(name) {
   this.isWinner = false;
 }
 
-Player.prototype.roll = function() {
-  return Math.floor((Math.random() * 6) + 1);
-}
 
 Player.prototype.tallyTurnScore = function(roll) {
   if (roll === 1) {
