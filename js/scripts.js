@@ -37,9 +37,13 @@ Game.prototype.findCurrentPlayer = function() {
   return this.players[this.currentPlayer];
 }
 
-// Game.prototype.switchCurrentPlayer = function() {
-  
-// }
+Game.prototype.switchCurrentPlayer = function() {
+  if (this.currentPlayer === 1) {
+    this.currentPlayer = 2;
+  } else {
+    this.currentPlayer = 1;
+  }
+}
 
 Game.prototype.endTurn = function(player) {
   console.log("End Turn");
