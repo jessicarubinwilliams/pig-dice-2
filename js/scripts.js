@@ -46,10 +46,10 @@ Game.prototype.switchCurrentPlayer = function() {
 }
 
 Game.prototype.endTurn = function(player) {
-  console.log("End Turn");
+  player.gameScore += player.turnScore;
+  player.turnScore = 0;
+  this.switchCurrentPlayer();
 }
-
-
 
 function Player(name) {
   this.name = name;
