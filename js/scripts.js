@@ -71,12 +71,20 @@ function Player(name) {
   this.isWinner = false;
 }
 
+Player.prototype.addDeterminingRoll= function(roll) {
+  this.determiningRoll = roll
+}
+
+
 //Pseudo User Interface Logic
 let game1 = new Game();
 let player1 = new Player("Jamie");
 let player2 = new Player("Robin");
 game1.addPlayer(player1);
-game1.addPlayer(player2)
+game1.addPlayer(player2);
+player1.addDeterminingRoll(game1.roll());
+player2.addDeterminingRoll(game1.roll());
+console.log(game1);
 let currentPlayer = game1.findCurrentPlayer();
 game1.takeTurn(currentPlayer);
 console.log(game1);
