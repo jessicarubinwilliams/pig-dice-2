@@ -66,6 +66,22 @@ Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
 
+<!-- Game.prototype.determineFirstPlayer= function() {
+  if (this.players[1].determiningRoll === this.players[2].determiningRoll) {
+    return false;
+  }
+  else if (this.players[1].determiningRoll > this.players[2].determiningRoll) {
+    this.currentPlayer = 1;
+  } else {
+    this.currentPlayer = 2;
+  }
+} -->
+
+Describe: Game.prototype.determineFirstPlayer()
+Test: "It will assess both players determiningRoll property values, determine which is larger and make the player with the larger value the current player. It will add a current player property to the game. If both property values are equal it will return false"
+Expect(game1.determineFirstPlayer()).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false, determiningRoll: 3} , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false, determiningRoll: 5 } }, currentId: 2, isWon: false, currentPlayer: 2 })
+Expect(game1.determineFirstPlayer()).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false, determiningRoll: 3} , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false, determiningRoll: 3 } }, currentId: 2, isWon: false } and return value = false)
+
 Describe: Game.prototype.tallyTurnScore(player, roll())
 Test: "It will assess player's roll. If a one is rolled it will call game.prototype.endTurn(player). If a two through six is rolled it will add value of roll to turnScore property value"
 Expect(game1.tallyTurnScore(player1, 1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
