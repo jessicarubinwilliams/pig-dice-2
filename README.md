@@ -44,18 +44,18 @@ Expect(player1.addDeterminingRoll(3)).toEqual(Player { name: "Jamie", gameScore:
 Expect(player2.addDeterminingRoll(6)).toEqual(Player { name: "Robin", gameScore: 0, turnScore: 0, isWinner: false determingRoll: 6})
 
 Describe: Game()
-Test: "It will create Game instances with Players, CurrentId, and CurrentPlayer properties"
-Expect(let game1 = new Game()).toEqual(Game { Players: {}, currentId: 0, currentPlayer: 1, isWon: false});
+Test: "It will create Game instances with Players, and CurrentId properties"
+Expect(let game1 = new Game()).toEqual(Game { Players: {}, currentId: 0, isWon: false});
 
 Describe: Game.prototype.assignId
 Test: "It will increment the currentId property and return the newly incremented value"
-Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, currentPlayer: 1, isWon: false });
+Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, isWon: false });
 Expect(game1.assignId()).toEqual(return value = 1));
 
 Describe: Game.prototype.addPlayer(player)
 Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key"
-Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1, isWon: false })
-Expect(game1.addPlayer(player2)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 1, isWon: false })
+Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, isWon: false })
+Expect(game1.addPlayer(player2)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, isWon: false })
 
 Describe: Game.prototype.roll()
 Test: "It will generate a random whole number between 1 and 6, inclusive"
