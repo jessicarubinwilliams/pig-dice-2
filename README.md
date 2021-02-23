@@ -38,6 +38,10 @@ Test: "It will take a name argument and create Player instances with Name, GameS
 Expect(let player1 = new Player("Jamie")).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 0, isWinner: false });
 Expect(let player2 = new Player("Robin")).toEqual(Player { name: "Robin", gameScore: 0, turnScore: 0, isWinner: false })
 
+Describe: Player.prototype.addDeterminingRoll(roll)
+Test: "It will take a number as an argument and add a property with the key of determiningRoll and the value of the argument"
+Expect(player1.addDeterminingRoll(3)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 0, isWinner: false determiningRoll: 3})
+Expect(player2.addDeterminingRoll(6)).toEqual(Player { name: "Robin", gameScore: 0, turnScore: 0, isWinner: false determingRoll: 6})
 
 Describe: Game()
 Test: "It will create Game instances with Players, CurrentId, and CurrentPlayer properties"
