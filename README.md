@@ -86,7 +86,9 @@ Describe: Game.prototype.switchCurrentPlayer()
 Test: "It will switch currentPlayer property value from 1 to 2 or from 2 to 1"
 Expect(game1.switchCurrentPlayer()).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false }, 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
 
-
+Describe: Game.prototype.endTurn(player)
+Test: "It will add a players turnScore to their gameScore, reset the turnScore to zero, and call the .switchCurrentPlayer() method"
+Expect(game1.switchCurrentPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 5, turnScore: 0, id: 1, isWinner: false }, 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
 
 ## Known Bugs
 
