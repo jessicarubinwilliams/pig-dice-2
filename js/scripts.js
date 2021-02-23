@@ -19,6 +19,15 @@ Game.prototype.roll = function() {
   return Math.floor((Math.random() * 6) + 1);
 }
 
+Game.prototype.tallyTurnScore = function(player, roll) {
+  if (roll === 1) {
+    player.turnScore = 0;
+    this.endTurn(player);
+  } else {
+    player.turnScore = roll;
+  }
+}
+
 Game.prototype.winnerCheck = function(player) {
   if (player.gameScore >= 100) {
     player.isWinner = true;
@@ -29,7 +38,7 @@ Game.prototype.winnerCheck = function(player) {
 }
 
 Game.prototype.takeTurn = function(player) {
-  let takeAnotherRoll = player.tallyTurnScore(this.roll());
+  let takeAnotherRoll = this.tallyTurnScore(player, this.roll());
   if (takeAnotherRoll === false) {
     this.endTurn();
   } else {
@@ -61,18 +70,6 @@ function Player(name) {
   this.gameScore = 0;
   this.isWinner = false;
 }
-
-
-Player.prototype.tallyTurnScore = function(roll) {
-  if (roll === 1) {
-    this.turnScore = 0;
-    return false;
-  } else {
-    this.turnScore = roll;
-  }
-}
-
-
 
 //Pseudo User Interface Logic
 let game1 = new Game();

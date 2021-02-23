@@ -39,15 +39,6 @@ Expect(let player1 = new Player("Jamie")).toEqual(Player { name: "Jamie", gameSc
 Expect(let player2 = new Player("Robin")).toEqual(Player { name: "Robin", gameScore: 0, turnScore: 0, isWinner: false })
 
 
-Describe: Player.prototype.tallyTurnScore(Player.prototype.roll())
-Test: "It will assess player's roll. If a one is rolled it will end player's turn. If a two through six is rolled it will add value of roll to turnScore property value"
-Expect(player1.tallyTurnScore(1)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 0, isWinner: false })
-Expect(player1.tallyTurnScore(2)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 2, isWinner: false })
-Expect(player1.tallyTurnScore(3)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 3, isWinner: false })
-Expect(player1.tallyTurnScore(4)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 4, isWinner: false })
-Expect(player1.tallyTurnScore(5)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 5, isWinner: false })
-Expect(player1.tallyTurnScore(6)).toEqual(Player { name: "Jamie", gameScore: 0, turnScore: 6, isWinner: false })
-
 Describe: Game()
 Test: "It will create Game instances with Players, CurrentId, and CurrentPlayer properties"
 Expect(let game1 = new Game()).toEqual(Game { Players: {}, currentId: 0, currentPlayer: 1, isWon: false});
@@ -70,6 +61,15 @@ Expect(player1.roll()).toEqual(3);
 Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
+
+Describe: Game.prototype.tallyTurnScore(player, roll())
+Test: "It will assess player's roll. If a one is rolled it will call game.prototype.endTurn(player). If a two through six is rolled it will add value of roll to turnScore property value"
+Expect(game1.tallyTurnScore(player1, 1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
+Expect(game1.tallyTurnScore(player1, 2)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 2, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 1, isWon: false })
+Expect(game1.tallyTurnScore(player1, 3)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 3, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 1, isWon: false })
+Expect(game1.tallyTurnScore(player1, 4)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 4, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 1, isWon: false })
+Expect(game1.tallyTurnScore(player1, 5)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 1, isWon: false })
+Expect(game1.tallyTurnScore(player1, 6)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 6, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 1, isWon: false })
 
 Describe: Game.prototype.winnerCheck(player)
 Test: "It will assess whether a Player's gameScore property value is greater than or equal to 100"
