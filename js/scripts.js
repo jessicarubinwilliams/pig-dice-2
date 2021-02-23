@@ -1,7 +1,6 @@
 function Game() {
   this.players = {};
   this.currentId = 0;
-  this.currentPlayer = 1;
   this.isWon = false;
 } 
 
@@ -17,6 +16,17 @@ Game.prototype.addPlayer = function(player) {
 
 Game.prototype.roll = function() {
   return Math.floor((Math.random() * 6) + 1);
+}
+
+Game.prototype.determineFirstPlayer = function() {
+  if (this.players[1].determiningRoll === this.players[2].determiningRoll) {
+    return false;
+  }
+  else if (this.players[1].determiningRoll > this.players[2].determiningRoll) {
+    this.currentPlayer = 1;
+  } else {
+    this.currentPlayer = 2;
+  }
 }
 
 Game.prototype.tallyTurnScore = function(player, roll) {
@@ -85,7 +95,10 @@ game1.addPlayer(player2);
 player1.addDeterminingRoll(game1.roll());
 player2.addDeterminingRoll(game1.roll());
 console.log(game1);
-let currentPlayer = game1.findCurrentPlayer();
-game1.takeTurn(currentPlayer);
+game1.determineFirstPlayer();
+//need UIL such that if return of .determineFirstPlayer() is false players are alerted their rolls were the same and to roll again
 console.log(game1);
-console.log(currentPlayer);
+let currentPlayer = game1.findCurrentPlayer();
+// game1.takeTurn(currentPlayer);
+// console.log(game1);
+// console.log(currentPlayer);
