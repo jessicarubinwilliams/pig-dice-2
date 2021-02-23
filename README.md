@@ -78,13 +78,15 @@ Describe: Game.prototype.takeTurn(player)
 Test: "It will call player.tallyTurnScore, pass player.roll() as an argument, and call game.winnerCheck()"
 Expect(game1.takeTurn(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false } }, currentId: 1, currentPlayer: 1, isWon: false })
 
-Describe: Game.prototype.switchCurrentPlayer
+Describe: Game.prototype.findCurrentPlayer()
+Test: "It will check the value of the currentPlayer property and return the player that has the matching id"
+Expect(game1.findCurrentPlayer()).toEqual((Player { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false }))
+
+Describe: Game.prototype.switchCurrentPlayer()
 Test: "It will switch currentPlayer property value from 1 to 2 or from 2 to 1"
 Expect(game1.switchCurrentPlayer()).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 5, id: 1, isWinner: false }, 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
 
-Describe: Game.prototype.findCurrentPlayer()
-Test: "It will check the value of the currentPlayer property and return the player that has the matching id"
-Expect(game1.findCurrentPlayer()).toEqual((Player { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false })
+
 
 ## Known Bugs
 
