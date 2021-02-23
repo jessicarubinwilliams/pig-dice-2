@@ -31,7 +31,8 @@ Needed Buttons:
 Play
 Roll
 Hold
-New Game
+Rematch - (new game same players)
+New Game - (new game new players)
 
 -What functions and how will these be triggered throughout the game play?
 
@@ -68,4 +69,5 @@ List of Tests:
 √ takeTurn()
 √ switchPlayer()
 √ endTurn()
+rematch()
 newGame()
