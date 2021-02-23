@@ -13,19 +13,23 @@ What will happen when a user clicks "Play"?:
 represents the game starting opposed to the individuals turn. This will take the names of the two players and assign them a side on the page to display their turn score and total score. There will also be a hold button, and a roll button in the middle of the page to take their turn.
 
 What objects will you need?
+gameChest
 game
 player
 
 What key-value pairs will each object need to contain in order for the game to work?
-GAME: (AddressBook)
+GAME:
 Players: {players}
 CurrentId: 0
 CurrentPlayer: 1 or 2
-PLAYERS: (Contact)
+PLAYERS:
 Name: playerName
 GameScore: gameScore
 TurnScore: turnScore
 Id: #
+GAMECHEST:
+Games: {games}
+CurrentId: 0
 
 Needed Buttons:
 Play
@@ -50,6 +54,10 @@ Player functions:
 roll - triggered by click (clicking Roll Button)
 tallyTurnScore - triggered by click (clicking roll)
 
+gameChest functions:
+assignId - triggered by addGame()
+addGame - triggered by click (click of either rematch of newGame buttons)
+
 How will information be collected from the user? How will it be displayed?
 
 it will be collected through a submit form to take player names then use clicks on the hold or roll buttons continue the game from there. Each players score will be displayed under their player name, these two players will be on separate sides of the page.
@@ -71,5 +79,7 @@ List of Tests:
 √ endTurn()
 √ determineWhoGoesFirst()
 gameChest object
+assignId()
+addGame()
 rematch()
 newGame()
