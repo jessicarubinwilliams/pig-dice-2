@@ -69,5 +69,7 @@ List of Tests:
 √ takeTurn()
 √ switchPlayer()
 √ endTurn()
+determineWhoGoesFirst()
+gameChest object
 rematch()
 newGame()
