@@ -112,8 +112,11 @@ $(document).ready(function() {
     let player2 = new Player(player2Name);
     game.addPlayer(player1);
     game.addPlayer(player2);
-
     console.log(gameChest);
+    $("#who-goes-first").show();
+    $("#welcome-view").hide();
+    $("#player1info").append(player1Name);
+    $("#player2info").append(player2Name)
   }); 
 });
 
