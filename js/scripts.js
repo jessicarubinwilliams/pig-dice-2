@@ -1,11 +1,11 @@
 function GameChest() {
   this.games = {}
-  this.currentId = 0;
+  this.currentGameId = 0;
 }
 
 GameChest.prototype.assignId = function() {
-  this.currentId += 1;
-  return this.currentId;
+  this.currentGameId += 1;
+  return this.currentGameId;
 }
 
 GameChest.prototype.addGame = function(game) {
@@ -15,13 +15,13 @@ GameChest.prototype.addGame = function(game) {
 
 function Game() {
   this.players = {};
-  this.currentId = 0;
+  this.currentPlayerId = 0;
   this.isWon = false;
 } 
 
 Game.prototype.assignId = function() {
-  this.currentId += 1;
-  return this.currentId;
+  this.currentPlayerId += 1;
+  return this.currentPlayerId;
 }
 
 Game.prototype.addPlayer = function(player) {
@@ -100,13 +100,20 @@ Player.prototype.addDeterminingRoll= function(roll) {
   this.determiningRoll = roll
 }
 
+let gameChest = new GameChest();
 $(document).ready(function() {
   $("#player-names-form").submit(function(event) {
     event.preventDefault();
     const player1Name = $("#player1-name").val();
     const player2Name = $("#player2-name").val();
-    console.log(player1Name);
-    console.log(player2Name);
+    let game = new Game();
+    gameChest.addGame(game);
+    let player1 = new Player(player1Name);
+    let player2 = new Player(player2Name);
+    game.addPlayer(player1);
+    game.addPlayer(player2);
+
+    console.log(gameChest);
   }); 
 });
 
