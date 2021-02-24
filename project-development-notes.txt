@@ -80,6 +80,6 @@ List of Tests:
 √ determineWhoGoesFirst()
 √ gameChest object
 √ assignId()
-addGame()
+√ addGame()
 rematch()
 newGame()
