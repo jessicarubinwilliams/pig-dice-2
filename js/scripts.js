@@ -100,24 +100,33 @@ Player.prototype.addDeterminingRoll= function(roll) {
   this.determiningRoll = roll
 }
 
+$(document).ready(function() {
+  $("#player-names-form").submit(function(event) {
+    event.preventDefault();
+    const player1Name = $("#player1-name").val();
+    const player2Name = $("#player2-name").val();
+    console.log(player1Name);
+    console.log(player2Name);
+  }); 
+});
 
 //Pseudo User Interface Logic
-let gameChest = new GameChest();
-console.log(gameChest);
-let game1 = new Game();
-gameChest.addGame(game1);
-console.log(gameChest);
-let player1 = new Player("Jamie");
-let player2 = new Player("Robin");
-game1.addPlayer(player1);
-game1.addPlayer(player2);
-player1.addDeterminingRoll(game1.roll());
-player2.addDeterminingRoll(game1.roll());
-console.log(game1);
-game1.determineFirstPlayer();
+// let gameChest = new GameChest();
+// console.log(gameChest);
+// let game1 = new Game();
+// gameChest.addGame(game1);
+// console.log(gameChest);
+// let player1 = new Player("Jamie");
+// let player2 = new Player("Robin");
+// game1.addPlayer(player1);
+// game1.addPlayer(player2);
+// player1.addDeterminingRoll(game1.roll());
+// player2.addDeterminingRoll(game1.roll());
+// console.log(game1);
+// game1.determineFirstPlayer();
 //need UIL such that if return of .determineFirstPlayer() is false players are alerted their rolls were the same and to roll again
-console.log(game1);
-let currentPlayer = game1.findCurrentPlayer();
+// console.log(game1);
+// let currentPlayer = game1.findCurrentPlayer();
 // game1.takeTurn(currentPlayer);
 // console.log(game1);
 // console.log(currentPlayer);
