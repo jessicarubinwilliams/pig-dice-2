@@ -78,7 +78,7 @@ List of Tests:
 √ switchPlayer()
 √ endTurn()
 √ determineWhoGoesFirst()
-gameChest object
+√ gameChest object
 assignId()
 addGame()
 rematch()
