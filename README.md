@@ -47,7 +47,7 @@ Describe: Game()
 Test: "It will create Game instances with Players, and CurrentId properties"
 Expect(let game1 = new Game()).toEqual(Game { Players: {}, currentId: 0, isWon: false});
 
-Describe: Game.prototype.assignId
+Describe: Game.prototype.assignId()
 Test: "It will increment the currentId property and return the newly incremented value"
 Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, isWon: false });
 Expect(game1.assignId()).toEqual(return value = 1));
@@ -103,6 +103,11 @@ Expect(game1.switchCurrentPlayer(player1)).toEqual(Game { Players: { 1 { name: "
 Describe: GameChest()
 Test: "It will create GameChest instances with Games and CurrentId properties"
 Expect(let gameChest = new GameChest()).toEqual(GameChest { Games: {}, currentId: 0 });
+
+Describe: GameChest.prototype.assignId()
+Test: "It will increment the currentId property and return the newly incremented value"
+Expect(gameChest.assignId()).toEqual(GameChest { Games: {}, currentId: 1 });
+Expect(gameChest.assignId()).toEqual(return value = 1));
 
 ## Known Bugs
 
