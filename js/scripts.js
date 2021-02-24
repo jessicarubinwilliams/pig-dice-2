@@ -96,7 +96,7 @@ function Player(name) {
   this.isWinner = false;
 }
 
-Player.prototype.addDeterminingRoll= function(roll) {
+Player.prototype.addDeterminingRoll = function(roll) {
   this.determiningRoll = roll
 }
 
@@ -117,7 +117,19 @@ $(document).ready(function() {
     $("#welcome-view").hide();
     $("#player1Name").text(player1Name);
     $("#player2Name").text(player2Name);
-  }); 
+  });
+  $("#player1Rolls").submit(function(event) {
+    event.preventDefault();
+    player1Roll = gameChest.games[gameChest.currentGameId].roll();
+    gameChest.games[gameChest.currentGameId].players[1].addDeterminingRoll(player1Roll);
+    $("#player1RollOutput").append("<p class='mt-3'>Your rolled a " + player1Roll + "</p>");
+  })
+  $("#player2Rolls").submit(function(event) {
+    event.preventDefault();
+    player2Roll = gameChest.games[gameChest.currentGameId].roll();
+    gameChest.games[gameChest.currentGameId].players[2].addDeterminingRoll(player2Roll);
+    $("#player2RollOutput").append("<p class='mt-3'>Your rolled a " + player2Roll + "</p>");
+  })
 });
 
 //Pseudo User Interface Logic
