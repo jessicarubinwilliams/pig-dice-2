@@ -3,6 +3,11 @@ function GameChest() {
   this.currentId = 0;
 }
 
+GameChest.prototype.assignId = function() {
+  this.currentId += 1;
+  return this.currentId;
+}
+
 function Game() {
   this.players = {};
   this.currentId = 0;
@@ -93,6 +98,7 @@ Player.prototype.addDeterminingRoll= function(roll) {
 
 //Pseudo User Interface Logic
 let gameChest = new GameChest();
+console.log(gameChest);
 let game1 = new Game();
 let player1 = new Player("Jamie");
 let player2 = new Player("Robin");
