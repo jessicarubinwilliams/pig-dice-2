@@ -130,6 +130,16 @@ $(document).ready(function() {
     gameChest.games[gameChest.currentGameId].players[2].addDeterminingRoll(player2Roll);
     $("#player2RollOutput").append("<p class='mt-3'>Your rolled a " + player2Roll + "</p>");
   })
+  const buttonIdArray = []
+  $("#player1Rolls, #player2Rolls").on("click", function() {
+    buttonIdArray.push(this.id);
+    if (buttonIdArray.length === 2) {
+      //The code below works correctly when called in the console but not when called within this function. When called within this function it seemingly always make currentPlayer = 2.
+      // gameChest.games[gameChest.currentGameId].determineFirstPlayer();
+      // console.log(gameChest.games[gameChest.currentGameId].currentPlayer);
+      console.log("Eureka")
+    }
+  })
 });
 
 //Pseudo User Interface Logic
