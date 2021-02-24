@@ -8,6 +8,11 @@ GameChest.prototype.assignId = function() {
   return this.currentId;
 }
 
+GameChest.prototype.addGame = function(game) {
+  game.id = this.assignId();
+  this.games[game.id] = game;
+}
+
 function Game() {
   this.players = {};
   this.currentId = 0;
@@ -100,6 +105,8 @@ Player.prototype.addDeterminingRoll= function(roll) {
 let gameChest = new GameChest();
 console.log(gameChest);
 let game1 = new Game();
+gameChest.addGame(game1);
+console.log(gameChest);
 let player1 = new Player("Jamie");
 let player2 = new Player("Robin");
 game1.addPlayer(player1);
