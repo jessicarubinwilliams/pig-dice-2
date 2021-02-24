@@ -83,3 +83,9 @@ List of Tests:
 √ addGame()
 rematch()
 newGame()
+
+Next Development Steps:
+User Interface
+User Interface Logic
+Business Logic for rematches and new games with new players
+Update UI & UIL for that new functionality
