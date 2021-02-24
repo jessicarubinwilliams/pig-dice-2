@@ -66,17 +66,6 @@ Expect(player1.roll()).toEqual(4);
 Expect(player1.roll()).toEqual(5);
 Expect(player1.roll()).toEqual(6);
 
-<!-- Game.prototype.determineFirstPlayer= function() {
-  if (this.players[1].determiningRoll === this.players[2].determiningRoll) {
-    return false;
-  }
-  else if (this.players[1].determiningRoll > this.players[2].determiningRoll) {
-    this.currentPlayer = 1;
-  } else {
-    this.currentPlayer = 2;
-  }
-} -->
-
 Describe: Game.prototype.determineFirstPlayer()
 Test: "It will assess both players determiningRoll property values, determine which is larger and make the player with the larger value the current player. It will add a current player property to the game. If both property values are equal it will return false"
 Expect(game1.determineFirstPlayer()).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false, determiningRoll: 3} , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false, determiningRoll: 5 } }, currentId: 2, isWon: false, currentPlayer: 2 })
@@ -110,6 +99,10 @@ Expect(game1.switchCurrentPlayer()).toEqual(Game { Players: { 1 { name: "Jamie",
 Describe: Game.prototype.endTurn(player)
 Test: "It will add a players turnScore to their gameScore, reset the turnScore to zero, and call the .switchCurrentPlayer() method"
 Expect(game1.switchCurrentPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 5, turnScore: 0, id: 1, isWinner: false }, 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, currentPlayer: 2, isWon: false })
+
+Describe: GameChest()
+Test: "It will create GameChest instances with Games and CurrentId properties"
+Expect(let gameChest = new GameChest()).toEqual(GameChest { Games: {}, currentId: 0 });
 
 ## Known Bugs
 
