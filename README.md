@@ -53,7 +53,7 @@ Expect(game1.assignId()).toEqual(Game { Players: {}, currentId: 1, isWon: false 
 Expect(game1.assignId()).toEqual(return value = 1));
 
 Describe: Game.prototype.addPlayer(player)
-Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance as a value of the Game's Player key"
+Test: "It will take a Player instance as an argument, call the assignID method, assign an id value to the Player instance, add the Player instance to the Game's players property"
 Expect(game1.addPlayer(player1)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } }, currentId: 1, isWon: false })
 Expect(game1.addPlayer(player2)).toEqual(Game { Players: { 1 { name: "Jamie", gameScore: 0, turnScore: 0, id: 1, isWinner: false } , 2 { name: "Robin", gameScore: 0, turnScore: 0, id: 2, isWinner: false } }, currentId: 2, isWon: false })
 
@@ -109,6 +109,12 @@ Test: "It will increment the currentId property and return the newly incremented
 Expect(gameChest.assignId()).toEqual(GameChest { Games: {}, currentId: 1 });
 Expect(gameChest.assignId()).toEqual(return value = 1));
 
+Describe: GameChest.prototype.addGame(game)
+Test: "It will take a Game instance as an argument, call the assignID method, assign an id value to the Game instance, and add the Game instance to the GameChest's games property"
+Expect(gameChest.addGame(game1)).toEqual(GameChest { Games: {1: { Players: {}, currentId: 0, isWon: false}}, currentId: 1 })
+
+
+1: { Players: {}, currentId: 0, isWon: false}
 ## Known Bugs
 
 * _Any known issues_
