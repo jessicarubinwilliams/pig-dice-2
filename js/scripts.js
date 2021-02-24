@@ -115,8 +115,8 @@ $(document).ready(function() {
     console.log(gameChest);
     $("#who-goes-first").show();
     $("#welcome-view").hide();
-    $("#player1info").append(player1Name);
-    $("#player2info").append(player2Name)
+    $("#player1Name").text(player1Name);
+    $("#player2Name").text(player2Name);
   }); 
 });
 
