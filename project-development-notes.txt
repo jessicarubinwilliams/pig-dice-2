@@ -79,7 +79,7 @@ List of Tests:
 √ endTurn()
 √ determineWhoGoesFirst()
 √ gameChest object
-assignId()
+√ assignId()
 addGame()
 rematch()
 newGame()
