@@ -101,6 +101,18 @@ Player.prototype.addDeterminingRoll = function(roll) {
 }
 
 let gameChest = new GameChest();
+
+function announceFirstPlayer(gameBeingPlayed) {
+  let firstPlayerDiv = $("#first-player");
+  let htmlForFirstPlayerDiv = "";
+  gameBeingPlayed.determineFirstPlayer();
+  if (gameBeingPlayed.determineFirstPlayer() === false) {
+    htmlForFirstPlayerDiv = "<h3> It's a tie. Please each roll again.</h3>";
+  } else { htmlForFirstPlayerDiv = "<h3>" + gameBeingPlayed.findCurrentPlayer() + ", you play first!"; 
+  }
+  firstPlayerDiv.html(htmlForFirstPlayerDiv);
+};
+
 $(document).ready(function() {
   $("#player-names-form").submit(function(event) {
     event.preventDefault();
@@ -114,30 +126,32 @@ $(document).ready(function() {
     game.addPlayer(player2);
     console.log(gameChest);
     $("#who-goes-first").show();
+    $("#first-player").hide();
     $("#welcome-view").hide();
     $("#player1Name").text(player1Name);
     $("#player2Name").text(player2Name);
   });
   $("#player1Rolls").submit(function(event) {
     event.preventDefault();
-    player1Roll = gameChest.games[gameChest.currentGameId].roll();
+    const player1Roll = gameChest.games[gameChest.currentGameId].roll();
     gameChest.games[gameChest.currentGameId].players[1].addDeterminingRoll(player1Roll);
-    $("#player1RollOutput").append("<p class='mt-3'>Your rolled a " + player1Roll + "</p>");
+    $("#player1RollOutput").html("<p class='mt-3'>Your rolled a " + player1Roll + "</p>");
   })
   $("#player2Rolls").submit(function(event) {
     event.preventDefault();
-    player2Roll = gameChest.games[gameChest.currentGameId].roll();
+    const player2Roll = gameChest.games[gameChest.currentGameId].roll();
     gameChest.games[gameChest.currentGameId].players[2].addDeterminingRoll(player2Roll);
-    $("#player2RollOutput").append("<p class='mt-3'>Your rolled a " + player2Roll + "</p>");
+    $("#player2RollOutput").html("<p class='mt-3'>Your rolled a " + player2Roll + "</p>");
   })
-  const buttonIdArray = []
+  let buttonIdArray = []
   $("#player1Rolls, #player2Rolls").on("click", function() {
     buttonIdArray.push(this.id);
+    console.log(buttonIdArray);
     if (buttonIdArray.length === 2) {
-      //The code below works correctly when called in the console but not when called within this function. When called within this function it seemingly always make currentPlayer = 2.
-      gameChest.games[gameChest.currentGameId].determineFirstPlayer();
+      console.log("Eureka")
+      announceFirstPlayer(gameChest.games[gameChest.currentGameId]);
     }
-  })
+  });
 });
 
 //Pseudo User Interface Logic
