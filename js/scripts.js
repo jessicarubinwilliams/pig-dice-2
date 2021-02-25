@@ -135,9 +135,7 @@ $(document).ready(function() {
     buttonIdArray.push(this.id);
     if (buttonIdArray.length === 2) {
       //The code below works correctly when called in the console but not when called within this function. When called within this function it seemingly always make currentPlayer = 2.
-      // gameChest.games[gameChest.currentGameId].determineFirstPlayer();
-      // console.log(gameChest.games[gameChest.currentGameId].currentPlayer);
-      console.log("Eureka")
+      gameChest.games[gameChest.currentGameId].determineFirstPlayer();
     }
   })
 });
